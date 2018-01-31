@@ -19,7 +19,10 @@ class TestTranslate < Minitest::Test
   end
 
   def test_translator_translates_lowercase_letters
-    assert_equal "......-...-..--- .-----.-..-..-..", @translator.eng_to_morse("hello world")
+    expected = "......-...-..--- .-----.-..-..-.."
+    result = @translator.eng_to_morse("hello world")
+
+    assert_equal expected, result
   end
 
   def test_translator_translates_uppercase_and_numbers
@@ -29,16 +32,24 @@ class TestTranslate < Minitest::Test
   end
 
   def test_translator_can_traslate_a_file
-    assert_equal ".. .--- ..-. .- ..-....-...", @translator.from_file("input.txt")
+    expected = ".. .--- ..-. .- ..-....-..."
+    result = @translator.from_file("input.txt")
+
+    assert_equal expected, result
   end
 
   def test_translator_translates_morse_to_english
-    assert_equal "hello world", @translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+    expected = "hello world"
+    result = @translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+
+    assert_equal expected, result
   end
 
   def test_translator_can_translate_files_with_multiple_lines
-    lines = ".-....-.. .----.-....-.. ..---.-....-.. ...--"
-    assert_equal lines, @translator.from_file("input_two.txt")
+    expected = ".-....-.. .----.-....-.. ..---.-....-.. ...--"
+    result = @translator.from_file("input_two.txt")
+    
+    assert_equal expected, result
   end
 
 end
