@@ -28,5 +28,8 @@ class TestTranslate < Minitest::Test
     end
   end
 
+  def test_translator_can_traslate_a_file
+    assert_equal ".. .--- ..-. .- ..-....-...", @translator.from_file("input.txt")
+  end
 
 end
