@@ -1,3 +1,5 @@
+require 'pry'
+
 class Translate
   attr_reader :dictionary
 
@@ -42,9 +44,10 @@ class Translate
   end
 
   def eng_to_morse(eng_string)
-    translated_string = eng_string.split("").map do |character|
+    translated_string = eng_string.downcase.split("").map do |character|
       @dictionary[character]
     end
     translated_string.join
   end
+
 end
