@@ -36,4 +36,9 @@ class TestTranslate < Minitest::Test
     assert_equal "hello world", @translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
   end
 
+  def test_translator_can_translate_files_with_multiple_lines
+    lines = ".-....-.. .----.-....-.. ..---.-....-.. ...--"
+    assert_equal lines, @translator.from_file("input_two.txt")
+  end
+
 end

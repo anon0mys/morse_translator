@@ -53,9 +53,7 @@ class Translate
   def from_file(filename)
     if File.exist?("./lib/#{filename}")
       file = File.open("./lib/#{filename}", 'r')
-      file.lines.each do |line|
-        return eng_to_morse(line)
-      end
+      eng_to_morse(file.read)
     else
       "Please enter a valid filename"
     end
