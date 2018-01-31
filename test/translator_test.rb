@@ -23,13 +23,17 @@ class TestTranslate < Minitest::Test
   end
 
   def test_translator_translates_uppercase_and_numbers
-    @translations.each do |phrase, translation|
-      assert_equal translation, @translator.eng_to_morse(phrase)
+    @translations.each do |english, morse|
+      assert_equal morse, @translator.eng_to_morse(english)
     end
   end
 
   def test_translator_can_traslate_a_file
     assert_equal ".. .--- ..-. .- ..-....-...", @translator.from_file("input.txt")
+  end
+
+  def test_translator_translates_morse_to_english
+    assert_equal "hello world", @translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
   end
 
 end

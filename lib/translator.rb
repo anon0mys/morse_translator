@@ -61,4 +61,18 @@ class Translate
     end
   end
 
+  def morse_to_eng(morse_string)
+    words_array = morse_string.split("  ")
+    translated = words_array.map do |word|
+      translate_word(word).join
+    end
+    translated.join(" ")
+  end
+
+  def translate_word(word)
+    word.split.map do |character|
+      @dictionary.key(character)
+    end
+  end
+
 end
